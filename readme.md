@@ -7,6 +7,6 @@ To use this:
 * Simple place the inline-console.js file in your web project (somewhere like /js/vendor if you are using something like HTML5Boilerplate.com).
 * add this line to any page you want to add the inline developer console too: 
 ```javascript
-<script src="/inline-console.js"></script>
+<script src="/inline-console.min.js"></script>
 ```
 That's it. Refresh your page and the developer console will appear at the bottum of the page. 
