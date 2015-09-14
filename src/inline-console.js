@@ -11,7 +11,8 @@
         oldDebug = console.debug,
         oldWarn = console.warn,
         oldInfo = console.info,
-        oldError = console.error;
+        oldError = console.error,
+        consoleWrapper = document.createElement("div");
 
     /** From: http://stackoverflow.com/questions/2234979/how-to-check-in-javascript-if-one-element-is-contained-within-another **/
     isDescendant = function(parent, child) {
@@ -30,7 +31,6 @@
             var consoleTitle = document.createElement("h3"),
                 clearButton =  document.createElement("button");
 
-            consoleWrapper = document.createElement("div")
             inlineConsole = document.createElement("div");
 
             consoleWrapper.appendChild(consoleTitle);
@@ -66,9 +66,6 @@
             inlineConsole.style.resize = 'none';
             inlineConsole.style.overflowY = 'auto';
             inlineConsole.style.fontFamily = 'monospace';
-
-            document.body.appendChild(consoleWrapper);
-
         }
     };
 
@@ -107,6 +104,7 @@
         el.style.clear = 'both';
         el.style.margin = '0';
         el.style.padding = '0';
+        el.style.textAlign = 'left';
         if(color) {
             el.style.color = color;
         }
@@ -206,6 +204,10 @@
     window.onerror = function(message, lineNumber, file) {
         sendMsg('ERROR', [message, lineNumber, file] , '#ff0000');
     }
+
+    window.onload = function() {
+        document.body.appendChild(consoleWrapper);
+    };
 
     /**
      * Override and extend the default open/send methods for XMLHttpRequest so we can log this activity
