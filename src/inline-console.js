@@ -44,7 +44,7 @@
             consoleWrapper.style.right = '0';
             consoleWrapper.style.left = '0';
             consoleWrapper.style.clear = 'both';
-
+            consoleWrapper.classList.add("inline-console");
 
             clearButton.innerHTML = 'clear'
             clearButton.style.fontSize = '0.5em';
