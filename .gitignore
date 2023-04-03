@@ -1,0 +1,14 @@
+/dist
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+node_modules/
+*.tgz
+
+# dotenv environment variables file
+.env
+.env.test
+.env.local
+
+# Optional eslintcache
+.eslintcache

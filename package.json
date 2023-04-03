@@ -1,0 +1,37 @@
+{
+	"name": "inline-console",
+	"version": "0.0.0",
+	"description": "Easily add a JavaScript debugging console to the bottom of the page (creating an inline developer console).",
+	"repository": "rwblackburn/inline-console",
+	"license": "GPL-2.0-only",
+	"author": "Robert Blackburn <info@blackburnlabs.com>",
+	"main": "dist/index.js",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "yarpm run lint && yarpm run webpack:build",
+		"clean": "rimraf dist",
+		"lint": "yarpm run lint:eslint && yarpm run lint:prettier && yarpm run sort-package",
+		"lint:eslint": "eslint . --fix --ext .js,.ts,.mjs,.mts,.cjs,.cts,.tsx,.jsx",
+		"lint:prettier": "prettier . --write --loglevel warn",
+		"prepublishOnly": "yarpm run build",
+		"sort-package": "sort-package-json",
+		"watch": "yarpm run lint && yarpm run webpack:watch",
+		"webpack:build": "yarpm run clean && webpack --mode production --devtool hidden-source-map",
+		"webpack:watch": "yarpm run clean && webpack --watch"
+	},
+	"devDependencies": {
+		"eslint": "^8.37.0",
+		"eslint-define-config": "^1.17.0",
+		"prettier": "^2.8.7",
+		"rimraf": "^4.4.1",
+		"sort-package-json": "^2.4.1",
+		"webpack": "^5.76.3",
+		"webpack-cli": "^5.0.1",
+		"yarpm": "^1.2.0"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}
